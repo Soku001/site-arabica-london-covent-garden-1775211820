@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>% ARABICA London Covent Garden - Premium Coffee Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Reset */
+        :root {
+            --primary-color: #1a1a2e; /* Dark Blue */
+            --accent-color: #4a90d9; /* Blue */
+            --background-color: #f8f9fa; /* Light Grey/White */
+            --text-color: #333;
+            --light-text-color: #f8f9fa;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-bottom: 0.8em;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text-color);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #3a7ac2; /* Slightly darker accent */
+            transform: translateY(-2px);
+            color: var(--light-text-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 0.8rem 1.8rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: var(--light-text-color);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--light-text-color);
+            letter-spacing: -0.5px;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar .nav-links a {
+            color: var(--light-text-color);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.05rem;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .navbar .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .navbar .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light-text-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text-color);
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://source.unsplash.com/featured/1600x900/?Coffee,shop,professional');
+            margin-top: 6rem; /* Adjust for fixed navbar */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 46, 0.7); /* Primary color overlay with transparency */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--light-text-color);
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--background-color);
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: var(--light-text-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .learn-more {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--accent-color);
+        }
+
+        /* About Section */
+        .about {
+            background-color: #eef0f3; /* Slightly darker than background for contrast */
+            padding: 6rem 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-images img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            width: 100%;
+            height: 300px;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background-color: var(--background-color);
+        }
+
+        .reviews h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .google-rating {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .google-rating i {
+            color: #ffc107; /* Star yellow */
+            margin-right: 5px;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background-color: var(--light-text-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .review-card i.fa-quote-left {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 2.5rem;
+            color: rgba(74, 144, 217, 0.1); /* Very light accent */
+            z-index: 0;
+        }
+
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #444;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* New Features Section */
+        .features {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 6rem 0;
+        }
+
+        .features h2 {
+            color: var(--light-text-color);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: rgba(74, 144, 217, 0.15); /* Accent color with transparency */
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4rem;
+            color: var(--light-text-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--background-color);
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background-color: var(--light-text-color);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .contact-info p i {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            width: 25px;
+        }
+
+        .contact-form {
+            background-color: var(--light-text-color);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.2);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 4rem 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--light-text-color);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a,
+        .footer-col p {
+            color: rgba(248, 249, 250, 0.8);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-col .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: rgba(248, 249, 250, 0.8);
+        }
+
+        .footer-col .contact-item i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(248, 249, 250, 0.1);
+            text-align: center;
+            color: rgba(248, 249, 250, 0.7);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25d366; /* WhatsApp Green */
+            color: var(--light-text-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1da851;
+            transform: scale(1.05);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .navbar .nav-links li {
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+
+            .navbar .nav-links a {
+                padding: 0.8rem 0;
+                display: block;
+            }
+
+            .navbar .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .services h2, .about-text h2, .reviews h2, .features h2, .contact h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+            .about-images img {
+                height: 250px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .navbar {
+                padding: 0.8rem 0;
+            }
+            .navbar .logo {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            .about-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-grid {
+                grid-template-columns: 1fr 1.5fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar" id="home">
+        <div class="container">
+            <a href="#home" class="logo">% ARABICA London Covent Garden</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Experience the Finest Coffee in London's Covent Garden</h1>
+            <p>At % ARABICA, we craft exceptional coffee experiences with passion and precision, right in the heart of King Street.</p>
+            <a href="#contact" class="btn">Book a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container text-center">
+            <h2>Our Dedicated Services</h2>
+            <p style="max-width: 700px; margin: 0 auto 3rem;">At % ARABICA, we are committed to providing an unparalleled coffee journey and expert support tailored to your needs.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-mug-hot"></i>
+                    <h3>Coffee shop</h3>
+                    <p>Immerse yourself in a curated selection of premium coffees and delightful pastries crafted daily.</p>
+                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Free Consultation</h3>
+                    <p>Discuss your preferences or event needs with our experts, without any commitment.</p>
+                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Online Appointments</h3>
+                    <p>Schedule your personalized coffee tasting or consultation session conveniently from anywhere.</p>
+                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users-gear"></i>
+                    <h3>Expert Team</h3>
+                    <p>Our dedicated baristas and coffee specialists ensure every cup and interaction exceeds expectations.</p>
+                    <a href="#about" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Quality Guaranteed</h3>
+                    <p>We promise excellence in every bean, brew, and service, ensuring your complete satisfaction.</p>
+                    <a href="#about" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Customer Support</h3>
+                    <p>Our friendly team is always here to assist you with any inquiries or special requests.</p>
+                    <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Our Story & Commitment</h2>
+                <p>% ARABICA London Covent Garden is more than just a coffee shop; it's a destination for coffee aficionados. Located at 5 King St, we are dedicated to bringing you the finest global coffee selections and an experience that reflects our passion.</p>
+                <p>Our <span style="font-weight: 600; color: var(--primary-color);">Expert Team</span> meticulously sources and prepares each coffee, upholding our promise of <span style="font-weight: 600; color: var(--primary-color);">Quality Guaranteed</span>. We believe in crafting memorable moments, one cup at a time.</p>
+                <p>Whether you're enjoying a quiet moment or conducting an impromptu <span style="font-weight: 600; color: var(--primary-color);">Free Consultation</span>, our professional environment ensures comfort and quality.</p>
+                <a href="#contact" class="btn btn-outline">Connect With Us</a>
+            </div>
+            <div class="about-images">
+                <img src="https://source.unsplash.com/featured/900x600/?Coffee,shop,team" alt="Our Expert Team at % ARABICA">
+                <img src="https://source.unsplash.com/featured/600x400/?modern,coffee,shop" alt="Modern interior of % ARABICA">
+                <img src="https://source.unsplash.com/featured/600x400/?professional,coffee,meeting" alt="Professional coffee setting">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="text-center">What Our Customers Say</h2>
+            <p class="google-rating">★ 4.4/5 Google rating based on hundreds of reviews</p>
+            <div class="review-grid">
+                <div class="review-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>“Absolutely love the ambiance and the quality of coffee here. The <span style="font-weight: 600;">Expert Team</span> truly knows their craft, making every visit to this <span style="font-weight: 600;">Coffee shop</span> a delightful experience. Highly recommend for a superb brew in Covent Garden!”</p>
+                    <div class="review-author">- Sarah L., Regular Customer</div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>“I used their <span style="font-weight: 600;">Online Appointments</span> for a <span style="font-weight: 600;">Free Consultation</span> about a special blend, and the <span style="font-weight: 600;">Customer Support</span> was incredibly helpful. They were knowledgeable and passionate, a true testament to their <span style="font-weight: 600;">Quality Guaranteed</span> promise.”</p>
+                    <div class="review-author">- David M., New Client</div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>“Located perfectly on King St, this <span style="font-weight: 600;">Coffee shop</span> offers a serene escape. Every cup reflects their <span style="font-weight: 600;">Quality Guaranteed</span> standard. Their <span style="font-weight: 600;">Expert Team</span> consistently provides impeccable service.”</p>
+                    <div class="review-author">- Emily R., Local Resident</div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Features Section -->
+    <section class="features" id="features">
+        <div class="container text-center">
+            <h2>Now Available: Enhanced Digital Experience</h2>
+            <p style="max-width: 700px; margin: 0 auto 3rem; color: rgba(248, 249, 250, 0.8);">We're continuously innovating to provide you with seamless service and support, complementing our premium coffee experience.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <h3>Live Chat</h3>
+                    <p>Instant support for visitors, 24/7, for all your inquiries about our <span style="font-weight: 600;">Coffee shop</span> or services.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-plus"></i>
+                    <h3>Online Booking</h3>
+                    <p>Easily book your <span style="font-weight: 600;">Free Consultation</span> or <span style="font-weight: 600;">Online Appointments</span> directly, without calling.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Assistant</h3>
+                    <p>Get immediate answers to common questions, ensuring swift <span style="font-weight: 600;">Customer Support</span> at any time.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h3>AI Voice Agent</h3>
+                    <p>Every call is answered, ensuring you never miss an opportunity to connect with our <span style="font-weight: 600;">Expert Team</span>.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp Integration</h3>
+                    <p>Receive instant replies and support directly via WhatsApp for quick assistance.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-star-half-stroke"></i>
+                    <h3>Live Google Reviews</h3>
+                    <p>See our latest customer feedback, showcasing our commitment to <span style="font-weight: 600;">Quality Guaranteed</span>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="text-center">Get in Touch with % ARABICA London Covent Garden</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">We are here to assist you with any questions or to help you book your next premium coffee experience or consultation.</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 5 King St, London WC2E 8HN, United Kingdom</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:hello@arabica.com">hello@arabica.com</a></p>
+                    <p><i class="fas fa-phone"></i> Reach out to our <span style="font-weight: 600;">Customer Support</span> for assistance.</p>
+                    <p><i class="fas fa-clock"></i> Visit us during our operational hours for your coffee fix.</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us an Enquiry</h3>
+                    <form action="#" method="POST">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+
+                        <label for="service">Service of Interest</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a Service</option>
+                            <option value="Coffee shop">Coffee shop Experience</option>
+                            <option value="Free Consultation">Free Consultation</option>
+                            <option value="Online Appointments">Online Appointments</option>
+                            <option value="Expert Team">Expert Team Inquiry</option>
+                            <option value="Quality Guaranteed">Quality Guaranteed Feedback</option>
+                            <option value="Customer Support">Customer Support Request</option>
+                        </select>
+
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="How can we assist you today?" required></textarea>
+
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>% ARABICA</h4>
+                <p>Bringing premium coffee experiences and exceptional service to London's Covent Garden.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#services">Coffee shop</a></li>
+                    <li><a href="#services">Free Consultation</a></li>
+                    <li><a href="#services">Online Appointments</a></li>
+                    <li><a href="#services">Expert Team</a></li>
+                    <li><a href="#services">Quality Guaranteed</a></li>
+                    <li><a href="#services">Customer Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>5 King St, London WC2E 8HN, United Kingdom</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:hello@arabica.com">hello@arabica.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>Connect with us for inquiries.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 % ARABICA London Covent Garden. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scroll for internal links (modern browsers handle `scroll-behavior: smooth` in CSS, this is for fallback/consistency if needed, but primarily for the menu toggle interaction)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    document.getElementById('menuToggle').innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>'; // Change icon to 'X'
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>'; // Change icon back to hamburger
+            }
+        });
+
+        // Close mobile menu when clicking outside of it (optional, but good UX)
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Sticky Nav Bar background change on scroll (optional enhancement)
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // After scrolling 50px
+                navbar.style.backgroundColor = 'var(--primary-color)'; // Ensure color is consistent
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+            } else {
+                navbar.style.backgroundColor = 'var(--primary-color)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
